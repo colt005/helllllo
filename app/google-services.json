@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "306983035280",
+    "firebase_url": "https://mahe-9348d.firebaseio.com",
+    "project_id": "mahe-9348d",
+    "storage_bucket": "mahe-9348d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306983035280:android:e2adf767f3298629",
+        "android_client_info": {
+          "package_name": "mahe.firebasechat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306983035280-9kvlm1r8hpfe1ao5k9nd398kr1mnjbh0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsv9qFY8Ax08CA8XRB004-JQASEFE83aw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
