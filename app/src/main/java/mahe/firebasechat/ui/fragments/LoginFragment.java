@@ -3,8 +3,10 @@ package mahe.firebasechat.ui.fragments;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,19 +14,27 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+
 import mahe.firebasechat.R;
 import mahe.firebasechat.core.login.LoginContract;
 import mahe.firebasechat.core.login.LoginPresenter;
+import mahe.firebasechat.forgotPassword;
+import mahe.firebasechat.ui.activities.LoginActivity;
 import mahe.firebasechat.ui.activities.RegisterActivity;
 import mahe.firebasechat.ui.activities.UserListingActivity;
+
+import static android.content.ContentValues.TAG;
 
 
 public class LoginFragment extends Fragment implements View.OnClickListener, LoginContract.View {
     private LoginPresenter mLoginPresenter;
-
+    FirebaseAuth auth = FirebaseAuth.getInstance();
     private EditText mETxtEmail, mETxtPassword;
     private Button mBtnLogin, mBtnRegister;
-
+    private Button mBtnForgot;
     private ProgressDialog mProgressDialog;
 
     public static LoginFragment newInstance() {
@@ -47,6 +57,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Log
         mETxtPassword = (EditText) view.findViewById(R.id.edit_text_password);
         mBtnLogin = (Button) view.findViewById(R.id.button_login);
         mBtnRegister = (Button) view.findViewById(R.id.button_register);
+        mBtnForgot = (Button) view.findViewById(R.id.button_forgot);
     }
 
     @Override
@@ -70,8 +81,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Log
     }
 
     private void setDummyCredentials() {
-        mETxtEmail.setText("Enter Email");
-        mETxtPassword.setText("Enter Password");
+        mETxtEmail.setHint("Enter Email");
+      //  mETxtEmail.setText("Enter Email");
+       // mETxtPassword.setText("Enter Password");
+        mETxtPassword.setHint("Enter Password");
     }
 
     @Override
@@ -85,6 +98,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Log
             case R.id.button_register:
                 onRegister(view);
                 break;
+            case R.id.button_forgot:
+                onForgot(view);
+                break;
         }
     }
 
@@ -94,6 +110,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Log
 
         mLoginPresenter.login(getActivity(), emailId, password);
         mProgressDialog.show();
+    }
+    private void onForgot(View view){
+        Intent intent = new Intent(getActivity(),forgotPassword.class);
+        startActivity(intent);
+
     }
 
     private void onRegister(View view) {

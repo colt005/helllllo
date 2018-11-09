@@ -32,9 +32,13 @@
             style="?attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:text="@string/login"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="132dp"
+            android:layout_marginRight="132dp"
+            android:text="@string/login" />
 
         <Button
             android:id="@+id/button_register"
@@ -44,6 +48,19 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:text="@string/login_register" />
+
+        <Button
+            android:id="@+id/button_forgot"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="102dp"
+            android:layout_marginEnd="97dp"
+            android:layout_marginRight="97dp"
+            android:text="@string/forgot" />
 
     </RelativeLayout>
 
